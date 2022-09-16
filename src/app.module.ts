@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CalendarController } from './dashboards/calendar/calendar.controller';
-import { CalendarService } from './dashboards/services/calendar/calendar.service';
+import { CalendarService } from './calendar/calendar.service';
+import { CalendarController } from './calendar/calendar.controller';
 
 @Module({
   imports: [],

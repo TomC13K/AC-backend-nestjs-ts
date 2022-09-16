@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { CalendarService } from '../services/calendar/calendar.service';
+import { CalendarService } from './calendar.service';
 
 @Controller('calendar')
 export class CalendarController {
@@ -10,3 +10,4 @@ export class CalendarController {
     return this.calendarService.getDayBookings();
   }
 }
+
