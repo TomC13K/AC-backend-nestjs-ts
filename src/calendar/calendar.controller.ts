@@ -10,4 +10,3 @@ export class CalendarController {
     return this.calendarService.getDayBookings();
   }
 }
-
