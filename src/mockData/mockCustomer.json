@@ -1,0 +1,16 @@
+{
+    "id": 123,
+    "firstName": "testName",
+    "lastName": "testSurname",
+    "phone": "01234567897",
+    "email": "lala@test.com",
+    "address": {
+        "street": "street 123 test",
+        "town": "town test",
+        "psc": "911 111"
+    },
+    "business": {
+        "ico": "ABS123456",
+        "dic": "ABC000000"
+    }
+}

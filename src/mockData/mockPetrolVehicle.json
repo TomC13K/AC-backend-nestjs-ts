@@ -1,0 +1,37 @@
+{
+    "id": 1,
+    "spz": "TN4568",
+    "make": "Audi",
+    "model": "A4",
+    "type": "V6 TSI",
+    "enginePower": 135,
+    "engineCode": "SC",
+    "yearManufactured": "05/2000",
+    "vin": "VIN12345667890",
+    "color": "red",
+    "hasAircon": true,
+    "isHybrid": false,
+    "isElectric": false,
+    "aircon": {
+        "airconCoolerType": [
+            "RFI56"
+        ],
+        "airconRefillAmount": 2.1
+    },
+    "checks": {
+        "stkEndDate": "24.6.2022",
+        "ekEndDate": "25.4.2022"
+    },
+    "hasAutomaticGearbox": true,
+    "autoGearbox": {
+        "automaticGearboxOilType": [
+            "ISO-65458"
+        ],
+        "automaticGearboxOilAmount": 2.0
+    },
+    "oilType": [
+        ""
+    ],
+    "engineOilAmount": 4.5,
+    "dashDistance": 120000
+}
