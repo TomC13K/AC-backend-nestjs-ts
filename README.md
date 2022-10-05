@@ -40,6 +40,12 @@ $ npm run test:cov
 - development
 - production
 
+Files in /src/common/envs :
+
+.env - sample env file
+development.env
+production.env 
+
 Change the NODE_ENV value in package.json in the root tree
 
 ```
