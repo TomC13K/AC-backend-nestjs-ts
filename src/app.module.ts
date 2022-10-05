@@ -8,6 +8,9 @@ import { DashboardService } from './dashboard/dashboard.service';
 import { ConfigModule } from '@nestjs/config';
 import { getEnvPath } from './common/helper/env.helper';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Customer } from './typeorm/entities/Customer';
+import { Vehicle } from './typeorm/entities/Vehicle';
+import { Booking } from './typeorm/entities/Booking';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
@@ -23,7 +26,7 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DBNAME,
-      entities: [],
+      entities: [Customer,Vehicle,Booking],
       synchronize: true,
   })],
   controllers: [AppController, CalendarController, DashboardController],

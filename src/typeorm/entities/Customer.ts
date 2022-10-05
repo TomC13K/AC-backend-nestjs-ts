@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 // set custom name for SQL table in here if different than Class (plural)
 @Entity({ name: 'customers' })
 export class Customer {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn({type:'int'})
     customerID: number;
 
     @Column({nullable: true})
