@@ -9,7 +9,10 @@ export class CustomerService {
     // injecting repository
     constructor(@InjectRepository(Customer) private customerRepository: Repository<Customer>,) {}
 
-    getCustomer() { }
+    getCustomers() {
+        //async
+        return this.customerRepository.find();
+    }
 
     createCustomer(customerDetails: CreateCustomerParams) {
         // create customer instance based on customerDto passed in 

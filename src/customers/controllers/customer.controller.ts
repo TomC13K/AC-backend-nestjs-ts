@@ -7,11 +7,15 @@ export class CustomerController {
     constructor(private customerService: CustomerService){}
 
     @Get()
-    getCustomer() { }
+    async getCustomers() {
+        const customers = await this.customerService.getCustomers();
+        return customers
+    }
     
     @Post()
     createCustomer(@Body() createCustomerDto: CreateCustomerDto) {
-        this.customerService.createCustomer(createCustomerDto);
+        //TODO remove return for prod, only to see response now during dev stage
+        return this.customerService.createCustomer(createCustomerDto);
     }
     
 }
