@@ -1,4 +1,4 @@
-export class CreateCustomerDto {
+export class CustomerDto {
     customerID: number;
     firstName: string;
     lastName: string;

@@ -2,8 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Customer } from 'src/typeorm/entities/Customer';
 import { Repository } from 'typeorm';
-import { CreateCustomerParams } from '../../types/types';
-import { UpdateCustomerDto } from '../dtos/UpdateCustomer.dto';
+import { CustomerDto } from '../dtos/Customer.dto';
 
 @Injectable()
 export class CustomerService {
@@ -16,7 +15,7 @@ export class CustomerService {
         return this.customerRepository.find();
     }
 
-    createCustomer(customerDetails: CreateCustomerParams) {
+    createCustomer(customerDetails: CustomerDto) {
         // create customer instance based on customerDto passed in 
         // create is not async
         //TODO checks
@@ -25,7 +24,7 @@ export class CustomerService {
         return this.customerRepository.save(newCustomer);
     }
 
-    updateCustomer(id: number, updateCustomerDetails: UpdateCustomerDto) {
+    updateCustomer(id: number, updateCustomerDetails: CustomerDto) {
         // used spread operator so it has access to all values but only updates the provided ones
         return this.customerRepository.update( id , { ...updateCustomerDetails });
     }
