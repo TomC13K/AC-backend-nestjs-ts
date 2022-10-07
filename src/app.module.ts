@@ -11,6 +11,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Customer } from './typeorm/entities/Customer';
 import { Vehicle } from './typeorm/entities/Vehicle';
 import { Booking } from './typeorm/entities/Booking';
+import { CustomerController } from './customers/controllers/customer.controller';
+import { CustomerService } from './customers/services/customer.service';
+import { CustomerModule } from './customers/customer.module';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
@@ -28,9 +31,11 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
       database: process.env.DB_DBNAME,
       entities: [Customer,Vehicle,Booking],
       synchronize: true,
-  })],
-  controllers: [AppController, CalendarController, DashboardController],
-  providers: [AppService, CalendarService, DashboardService],
+  }),
+    CustomerModule
+  ],
+  controllers: [AppController, CalendarController, DashboardController, CustomerController],
+  providers: [AppService, CalendarService, DashboardService, CustomerService],
 })
 export class AppModule {}
 
