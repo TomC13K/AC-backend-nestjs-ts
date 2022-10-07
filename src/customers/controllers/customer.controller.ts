@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body,Put, ParseIntPipe, Param } from '@nestjs/common';
 import { CreateCustomerDto } from '../dtos/CreateCustomer.dto';
+import { UpdateCustomerDto } from '../dtos/UpdateCustomer.dto';
 import { CustomerService } from '../services/customer.service';
 
 @Controller('customer')
@@ -14,8 +15,17 @@ export class CustomerController {
     
     @Post()
     createCustomer(@Body() createCustomerDto: CreateCustomerDto) {
-        //TODO remove return for prod, only to see response now during dev stage
-        return this.customerService.createCustomer(createCustomerDto);
+        this.customerService.createCustomer(createCustomerDto);
+    }
+
+    //update 
+    //parsing id to number
+    @Put(':id')
+    async updateCustomerById(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() updateCustomerDto: UpdateCustomerDto
+    ) {
+        await this.customerService.updateCustomer(id, updateCustomerDto);
     }
     
 }
