@@ -14,6 +14,7 @@ import { Booking } from './typeorm/entities/Booking';
 import { CustomerController } from './customers/controllers/customer.controller';
 import { CustomerService } from './customers/services/customer.service';
 import { CustomerModule } from './customers/customer.module';
+import { VehiclesModule } from './vehicles/vehicles.module';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
@@ -32,7 +33,8 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
       entities: [Customer,Vehicle,Booking],
       synchronize: true,
   }),
-    CustomerModule
+    CustomerModule,
+    VehiclesModule
   ],
   controllers: [AppController, CalendarController, DashboardController, CustomerController],
   providers: [AppService, CalendarService, DashboardService, CustomerService],

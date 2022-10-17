@@ -29,7 +29,7 @@ export class CustomerController {
     
     @Delete(':id')
     async deleteCustomerById(
-        @Param('id', ParseIntPipe) id: number,
+        @Param('id', ParseIntPipe) id: number
     ) {
         await this.customerService.deleteCustomer(id);
     }
