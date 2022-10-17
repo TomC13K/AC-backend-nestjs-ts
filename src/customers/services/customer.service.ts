@@ -8,7 +8,7 @@ import { CustomerDto } from '../dtos/Customer.dto';
 export class CustomerService {
 
     // injecting repository
-    constructor(@InjectRepository(Customer) private customerRepository: Repository<Customer>,) {}
+    constructor(@InjectRepository(Customer) private customerRepository: Repository<Customer>) {}
 
     getCustomers() {
         //async

@@ -6,8 +6,8 @@ export class Vehicle {
     @PrimaryGeneratedColumn({ type: 'int' })
     vehicleID: number;
 
-    @Column({nullable: true})
-    vehicleLinkID: number;
+    // @Column({nullable: true})
+    // vehicleLinkID: number;
 
     @Column({nullable: true})
     vehicleMake: string;
@@ -73,7 +73,7 @@ export class Vehicle {
 
     // array
     @Column({nullable: true})
-    EngineOilType: string;
+    engineOilType: string;
 
     @Column({nullable: true})
     engineOilAmount: number;
