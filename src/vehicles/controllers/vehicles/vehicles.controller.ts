@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
-import { VehicleDto } from 'src/customers/dtos/Vehicle.dto';
+import { VehicleDto } from 'src/vehicles/dtos/Vehicle.dto';
 import { VehiclesService } from 'src/vehicles/services/vehicles/vehicles.service';
 
 @Controller('vehicle')

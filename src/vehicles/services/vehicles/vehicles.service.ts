@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { VehicleDto } from 'src/customers/dtos/Vehicle.dto';
+import { VehicleDto } from 'src/vehicles/dtos/Vehicle.dto';
 import { Vehicle } from 'src/typeorm/entities/Vehicle';
 import { Repository } from 'typeorm';
 
