@@ -15,6 +15,7 @@ import { CustomerController } from './customers/controllers/customer.controller'
 import { CustomerService } from './customers/services/customer.service';
 import { CustomerModule } from './customers/customer.module';
 import { VehiclesModule } from './vehicles/vehicles.module';
+import { DbTablesModule } from './db-tables/db-tables.module';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
@@ -34,7 +35,8 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
       synchronize: true,
   }),
     CustomerModule,
-    VehiclesModule
+    VehiclesModule,
+    DbTablesModule
   ],
   controllers: [AppController, CalendarController, DashboardController, CustomerController],
   providers: [AppService, CalendarService, DashboardService, CustomerService],
