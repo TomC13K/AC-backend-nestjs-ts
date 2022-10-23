@@ -1,7 +1,7 @@
 import { VehicleTypeDto } from "./VehicleType"
 
-export class VehicleModelDto {
-    id_model: number;
+export interface IVehicleModelDto {
+    id_model: string;
     value_model: string;
     model: string;
     engines: VehicleTypeDto[];

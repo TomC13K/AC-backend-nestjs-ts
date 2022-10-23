@@ -8,7 +8,7 @@ export class DbTablesController {
     
     @Get('vehicleMakesFile/:name')
     async getVehicleMake(@Param('name') vehicleMake) {
-        const customers = await this.dbTablesService.getVehicleMakesAndCreateTable(vehicleMake);
+        const customers = await this.dbTablesService.getVehicleMakesAndCreateTab(vehicleMake);
         return customers
     }
 

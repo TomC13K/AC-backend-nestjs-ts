@@ -1,6 +1,6 @@
-export class VehicleMakeDto {
-    id_vyr: number;
-    value_vyr: number;
+export interface IVehicleMakeDto {
+    id_vyr: string;
+    value_vyr: string;
     vyrobca: string;
     
 }
