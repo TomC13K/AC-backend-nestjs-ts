@@ -15,6 +15,10 @@ import { CustomerController } from './customers/controllers/customer.controller'
 import { CustomerService } from './customers/services/customer.service';
 import { CustomerModule } from './customers/customer.module';
 import { VehiclesModule } from './vehicles/vehicles.module';
+import { DbTablesModule } from './db-tables/db-tables.module';
+import { VehicleMake } from './typeorm/entities/VehicleMake';
+import { VehicleModel } from './typeorm/entities/VehicleModel';
+import { VehicleType } from './typeorm/entities/VehicleType';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
@@ -30,11 +34,12 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DBNAME,
-      entities: [Customer,Vehicle,Booking],
+      entities: [Customer,Vehicle,Booking,VehicleMake,VehicleModel,VehicleType],
       synchronize: true,
   }),
     CustomerModule,
-    VehiclesModule
+    VehiclesModule,
+    DbTablesModule
   ],
   controllers: [AppController, CalendarController, DashboardController, CustomerController],
   providers: [AppService, CalendarService, DashboardService, CustomerService],
