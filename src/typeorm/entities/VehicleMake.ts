@@ -6,7 +6,7 @@ export class VehicleMake {
     @PrimaryGeneratedColumn({ type: 'int' })
     vehicleMakeID: number;
 
-    @Column({ nullable: true })
+    @Column("varchar", { unique: true, nullable: true })
     vehicleMake: string;
 
 }
