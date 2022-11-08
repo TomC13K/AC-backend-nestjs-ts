@@ -30,5 +30,6 @@ export class VehiclesController {
         @Param('id', ParseIntPipe) id: number
     ) {
         await this.vehicleService.deleteVehicle(id);
+        return id;
     }
 }

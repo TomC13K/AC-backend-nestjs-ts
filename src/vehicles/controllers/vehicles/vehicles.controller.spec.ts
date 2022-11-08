@@ -6,7 +6,7 @@ describe('VehiclesController', () => {
   let controller: VehiclesController;
 
   const mockService = {
-    deleteVehicleById: jest.fn()
+    deleteVehicle: jest.fn()
   };
 
   beforeEach(async () => {
@@ -23,4 +23,10 @@ describe('VehiclesController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  it('delete vehicle with provided ID', async () => {
+    mockService.deleteVehicle.mockResolvedValue(1);         
+    const response = await controller.deleteVehicleById(1);  
+    expect(response).toEqual(1);
+  })
 });

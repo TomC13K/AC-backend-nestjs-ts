@@ -13,9 +13,10 @@ export class VehiclesService {
         return this.vehicleRepository.find();
     }
 
-    createVehicle(vehicleDetails: VehicleDto) {
+    createVehicle(vehicleDetails: VehicleDto) : string{
         const newVehicle = this.vehicleRepository.create({ ...vehicleDetails });
-        return this.vehicleRepository.save(newVehicle);
+        this.vehicleRepository.save(newVehicle);
+        return "created";
     }
 
     updateVehicle(id: number, updateVehicleDetails: VehicleDto) {
