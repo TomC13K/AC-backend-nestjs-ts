@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Customer } from 'src/typeorm/entities/Customer';
+import { Customer } from '../../typeorm/entities/Customer';
 import { Repository } from 'typeorm';
 import { CustomerDto } from '../dtos/Customer.dto';
 
@@ -15,13 +15,14 @@ export class CustomerService {
         return this.customerRepository.find();
     }
 
-    createCustomer(customerDetails: CustomerDto) {
+    createCustomer(customerDetails: CustomerDto ) : string  {
         // create customer instance based on customerDto passed in 
         // create is not async
         //TODO checks
         const newCustomer = this.customerRepository.create({ ...customerDetails });
         // returns a promise - save is async method
-        return this.customerRepository.save(newCustomer);
+        this.customerRepository.save(newCustomer);
+        return "created";
     }
 
     updateCustomer(id: number, updateCustomerDetails: CustomerDto) {
@@ -29,8 +30,8 @@ export class CustomerService {
         return this.customerRepository.update( id , { ...updateCustomerDetails });
     }
 
-    deleteCustomer(id: number) {
+    async deleteCustomer(id: number) : Promise<any> {
         //TODO checks
-        return this.customerRepository.delete(id);
+        return await this.customerRepository.delete(id);
     }
 }
