@@ -1,18 +1,29 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { DashboardController } from './dashboard.controller';
+import { DashboardService } from './dashboard.service';
 
 describe('DashboardController', () => {
-  let controller: DashboardController;
+  let dashController: DashboardController;
+
+  const mockService = {
+    showBookings: jest.fn()
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [DashboardController],
-    }).compile();
+      providers: [DashboardService],
+    }).overrideProvider(DashboardService)
+      .useValue(mockService)
+      .compile();
 
-    controller = module.get<DashboardController>(DashboardController);
+    dashController = module.get<DashboardController>(DashboardController);
   });
 
-  // it('should be defined', () => {
-  //   expect(controller).toBeDefined();
-  // });
+  it('controller call to getDashboard returns 1!"', () => {
+    mockService.showBookings.mockReturnValue(1);          // for async return otherwise use mockReturnValue
+    const response = dashController.getDashboard();  
+    expect(response).toEqual(1);
+  });
+
 });

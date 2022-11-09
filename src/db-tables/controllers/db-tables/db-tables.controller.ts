@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { DbTablesService } from 'src/db-tables/services/db-tables/db-tables.service';
+import { DbTablesService } from '../../services/db-tables/db-tables.service';
 
 @Controller('db-tables')
 export class DbTablesController {
