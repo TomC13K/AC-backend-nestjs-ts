@@ -32,5 +32,6 @@ export class CustomerController {
         @Param('id', ParseIntPipe) id: number
     ) {
         await this.customerService.deleteCustomer(id);
+        return id;
     }
 }

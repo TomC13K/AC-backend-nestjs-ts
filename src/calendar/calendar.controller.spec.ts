@@ -1,18 +1,31 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CalendarController } from './calendar.controller';
+import { CalendarService } from './calendar.service';
 
 describe('CalendarController', () => {
-  let controller: CalendarController;
+  let calendarController: CalendarController;
+
+  const mockService = {
+    getDayBookings: jest.fn()
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [CalendarController],
-    }).compile();
+      providers:[CalendarService]
+    }).overrideProvider(CalendarService)
+      .useValue(mockService)
+      .compile();
 
-    controller = module.get<CalendarController>(CalendarController);
+    calendarController = module.get<CalendarController>(CalendarController);
   });
 
-  // it('should be defined', () => {
-  //   expect(controller).toBeDefined();
-  // });
+  describe('calendar controller methods', () => {
+    it('getDayBookings should return 1"', () => {
+      mockService.getDayBookings.mockReturnValue("1");          // for async return otherwise use mockReturnValue
+      const response = calendarController.getDayBookings();  
+      expect(response).toEqual('1');
+    });
+  });
+
 });

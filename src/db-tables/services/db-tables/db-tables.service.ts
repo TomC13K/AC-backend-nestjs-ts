@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { VehicleMake } from 'src/typeorm/entities/VehicleMake';
+import { VehicleMake } from '../../../typeorm/entities/VehicleMake';
 import { Repository } from 'typeorm';
 import { readFileSync, promises as fsPromises } from 'fs';
-import { IVehicleMake } from 'src/db-tables/json-types/IVehicleMake';
-import { VehicleModel } from 'src/typeorm/entities/VehicleModel';
-import { VehicleType } from 'src/typeorm/entities/VehicleType';
+import { IVehicleMake } from '../../json-types/IVehicleMake';
+import { VehicleModel } from '../../../typeorm/entities/VehicleModel';
+import { VehicleType } from '../../../typeorm/entities/VehicleType';
 
 @Injectable()
 export class DbTablesService {
